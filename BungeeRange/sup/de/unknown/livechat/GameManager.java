@@ -1,10 +1,50 @@
-/*Liebe Vanessa, es tut mir sehr leid, das ich es dir so schreiben muss, jedoch möchte ich nicht das du so abweisend bist wie jede andere, deswegen schreibe ich es dir hier
- * im Code. Alles was es ausagen muss, ich habe schon lange für Menschen keine Gefühle mehr, aber bei dir ist irgendwas falsch, ich entfinde wieder was wenn du da bist fühle ich wieder
- * freude als wenn mir etwas gegeben wird das ich schon lange nicht mehr hatte.
- * 
- * Auch wenn ich weiß, das du keine Lust darauf hast so etwas zu lesen, jedoch war es der beste weg für mich.
- * Auch wenn ich mich nicht mehr sehen lassen werde, da es warscheinlich keine möglichkeit gibt dich näher kennen zu lernen.
- * Ich wünsche dir trozdem alles gute sollte wieder meinen Erwarten einen Nachricht kommen, weißt du ja meine WH Nummer
- * Im diesem Sinne alles gut :(
- * */
- 
+package de.unknown.livechat;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class GameManager {
+	public static String Liebe(String Vanessa) {
+		if(new String("auch").equalsIgnoreCase("wenn")) {
+			String du = "Zur Zeit";
+			if(new  String("noch").equalsIgnoreCase("bereit")) {
+				return "bist";
+			}
+		}
+		return "für";
+	}
+	
+	public static void diese(String Worte, Integer muss, String ich, Integer dir) {
+		String sagen = "dass";
+		if(new String("ich").equalsIgnoreCase("immer") || new String("hinter").equalsIgnoreCase("dir")) {
+			HashMap<String, String>map = null;
+			map.put("stehe", "egal");
+			map.put("was", "passiert.");
+			map.put("selbst", "wenn");
+			
+			String dein = "Herz";
+			ArrayList<String>array = new ArrayList<>();
+			array.add("gebrochen");
+			array.add("wurde");
+			array.add("bin");
+		}
+	}
+	
+	public static String ich(String da, Integer um, Long dein,String Herz) {
+		if(new String("wieder").equalsIgnoreCase("zusammen") || (new String("setzt.").equals("Ich"))) {
+			return "hoffe" + "das";
+		}
+		return "du";
+	}
+	
+	public String mir(String glaubst, Integer dass, Long ich, Float dich) {
+		if(new String("wirklich").equalsIgnoreCase("mag.")) {
+			return "Für";
+		}
+		return "immer";
+	}
+	
+	public String an = "deiner";
+	public String Seite = "Unknown";
+	
+}
