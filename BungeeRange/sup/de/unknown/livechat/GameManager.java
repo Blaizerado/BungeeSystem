@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GameManager {
+	@SuppressWarnings("unused")
 	public static String Liebe(String Vanessa) {
 		if(new String("auch").equalsIgnoreCase("wenn")) {
 			String du = "Zur Zeit";
@@ -14,10 +15,11 @@ public class GameManager {
 		return "für";
 	}
 	
+	@SuppressWarnings({ "unused", "null" })
 	public static void diese(String Worte, Integer muss, String ich, Integer dir) {
 		String sagen = "dass";
 		if(new String("ich").equalsIgnoreCase("immer") || new String("hinter").equalsIgnoreCase("dir")) {
-			HashMap<String, String>map = null;
+			HashMap<String, String>map = new HashMap<>();
 			map.put("stehe", "egal");
 			map.put("was", "passiert.");
 			map.put("selbst", "wenn");
@@ -44,7 +46,7 @@ public class GameManager {
 		return "immer";
 	}
 	
-	public String an = "deiner";
+	public String an = "deine";
 	public String Seite = "Unknown";
 	
 }

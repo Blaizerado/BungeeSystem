@@ -26,7 +26,7 @@ public class Command_Sub_Report {
 				pp.sendMessage(Utils.prefix + "§cDer Spieler §e" + p.getName() + "§c hat soebend den Spieler §e" + args[1] + "§creportet!");
 			}
 		}
-		Support_MySQL.createReport(UUID, Reason, UUID_TARGET);
+		Support_MySQL.createReport(UUID, Reason, UUID_TARGET,p.getName(),args[1]);
 	}
 
 }

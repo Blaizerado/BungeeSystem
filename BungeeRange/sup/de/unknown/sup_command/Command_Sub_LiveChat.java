@@ -18,7 +18,8 @@ public class Command_Sub_LiveChat {
 		}
 		
 		if(i == 0) {p.sendMessage(Utils.prefix + "Achtung zur Zeit ist leider kein Supporter/Admin Online!"); return;}
-		
+		p.sendMessage(Utils.prefix + "§cUnsere Supporter haben einen Nachricht erhalten!");
+		LiveChat.chat_player.put(p, null);
 	}
 
 }
