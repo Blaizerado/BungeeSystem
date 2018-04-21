@@ -3,7 +3,9 @@ package de.unknown.ban.subcommand;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
+import de.unknown.ban.mysql.Time_Ban;
 import de.unknown.bungeecord.BungeeRange;
 import de.unknown.mysql.Player_Account;
 import de.unknown.utils.Utils;
@@ -28,10 +30,37 @@ public class Command_Sub_Time {
 				return;
 			}
 			if(target != null) {
+				char[] chars  = "abcdefghijklmnopqrstuvwxyz123456789".toCharArray();
+				int length = 12;
+				StringBuilder sb = new StringBuilder();
+				Random random = new Random();
+				for (int i = 0; i < length; i++) {
+				    char c = chars[random.nextInt(chars.length)];
+				    sb.append(c);
+				}
+				String output = sb.toString();
+				Long time = getBanTime(args[2], Integer.valueOf(args[3]));
 				SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 				target.disconnect("§3Achtung §c" + target.getName() + "§3,\nDu wurdest soebend vom Netzwerk gebannt!\n\n§3Grund: §c" +msg + "\n§3Admin: §c" + p.getName()
-				+ "\n§3Bis: §c" + df.format(getBanTime(args[2], Integer.valueOf(args[3]))) + "\n\n§3Du denkst das dieser Bann nicht rechtens ist?"
+				+ "\n§3Bis: §c" + df.format(time) + "\n§3BanID: §c" + output + "\n\n§3Du denkst das dieser Bann nicht rechtens ist?"
 				+ "\n§3Dan melde dich in unserem Forum: §ewww.mineup.de!");
+				p.sendMessage(Utils.prefix + "§cDu hast den Spieler §e" + args[1] + "§c vom Server gebannt!");
+				Time_Ban b = new Time_Ban(p.getName(), UUID, output, time, msg, p.getName(), args[1],uuidfetcher.getUUID(p.getName()).toString());
+				b.start();
+			}else {
+				char[] chars  = "abcdefghijklmnopqrstuvwxyz123456789".toCharArray();
+				int length = 12;
+				StringBuilder sb = new StringBuilder();
+				Random random = new Random();
+				for (int i = 0; i < length; i++) {
+				    char c = chars[random.nextInt(chars.length)];
+				    sb.append(c);
+				}
+				Long time = getBanTime(args[2], Integer.valueOf(args[3]));
+				String output = sb.toString();
+				p.sendMessage(Utils.prefix + "§cDu hast den Spieler §e" + args[1] + "§c vom Server gebannt!");
+				Time_Ban b = new Time_Ban(p.getName(), UUID, output, time, msg, p.getName(), args[1],uuidfetcher.getUUID(p.getName()).toString());
+				b.start();
 			}
 		}else {p.sendMessage(Utils.prefix + "§cDer Spieler ist nicht in der Datenbank!");}
 		
