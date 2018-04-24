@@ -39,6 +39,11 @@ public class Command_Sub_Perma {
 			+ "\n\nDu denkst der Bann ist nicht rechtens?\nDann melde dich in useren Forum: §ewww.MineUp.net!");
 			Perma_Ban b = new Perma_Ban(UUID, uuidfetcher.getUUID(p.getName()).toString(), msg, p.getName(), args[1], output, new Date().getTime(), Boolean.valueOf(args[2]), Boolean.valueOf(args[3]));
 			b.start();
+			p.sendMessage(Utils.prefix + "Du hast den Spieler mit dem Namen §e" + args[1] + "§c vom Server gebannt!");
+		}else {
+			Perma_Ban b = new Perma_Ban(UUID, uuidfetcher.getUUID(p.getName()).toString(), msg, p.getName(), args[1], output, new Date().getTime(), Boolean.valueOf(args[2]), Boolean.valueOf(args[3]));
+			b.start();
+			p.sendMessage(Utils.prefix + "Du hast den Spieler mit dem Namen §e" + args[1] + "§3 vom Server gebannt!");
 		}
 	}
 

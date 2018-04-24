@@ -3,6 +3,7 @@ package de.unknown.modul;
 import de.unknown.ban.listener.ProxyBanPlayerJoin;
 import de.unknown.bungeecord.BungeeRange;
 import de.unknown.command.ProxyBan;
+import de.unknown.command.ProxyUnBan;
 import de.unknown.commands.Find;
 import de.unknown.commands.Info;
 import de.unknown.commands.Lobby;
@@ -50,6 +51,7 @@ public class LoadModul {
 		bungeeRange.getProxy().getPluginManager().registerCommand(bungeeRange, new Find("find",bungeeRange));
 		bungeeRange.getProxy().getPluginManager().registerCommand(bungeeRange, new Support("support",bungeeRange));
 		bungeeRange.getProxy().getPluginManager().registerCommand(bungeeRange, new ProxyBan("ban",bungeeRange));
+		bungeeRange.getProxy().getPluginManager().registerCommand(bungeeRange, new ProxyUnBan("unban",bungeeRange));
 	}
 
 	@SuppressWarnings("static-access")
