@@ -19,7 +19,7 @@ public class Player_Account {
 	
 	public static void createPlayer(String UUID,String Name,String Ip) {
 		if(!playExists(UUID)) {
-			BungeeRange.my.update("INSERT INTO Account(UUID,Name,player_kick,player_bans,player_warns,player_ip) VALUES ('" + UUID +"','"+Name+"','0','0','0','"+Ip+"');");
+			BungeeRange.my.update("INSERT INTO Account(UUID,Name,player_kick,player_bans,player_warns,player_ip,groups) VALUES ('" + UUID +"','"+Name+"','0','0','0','"+Ip+"','0');");
 		}
 	}
 	
@@ -27,6 +27,17 @@ public class Player_Account {
 		if(playExists(UUID)){
 			BungeeRange.my.update("UPDATE User SET Name='"+Name+"' WHERE UUID='"+UUID+"'");
 		}else {}
+	}
+	
+	public static Integer getRang(String UUID) {
+		int s = 0;
+		try {
+			ResultSet rs = BungeeRange.my.query("SELECT * FROM Account WHERE UUID='"+UUID+"'");
+			if(rs.next()) {
+				s = rs.getInt("groups");
+			}else {}
+		}catch(Exception e) {}
+		return s;
 	}
 	
 	public static String getName(String UUID) {

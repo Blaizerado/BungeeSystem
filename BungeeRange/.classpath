@@ -6,6 +6,8 @@
 	<classpathentry kind="src" path="sup"/>
 	<classpathentry kind="src" path="unban"/>
 	<classpathentry kind="src" path="login"/>
+	<classpathentry kind="src" path="uperms"/>
+	<classpathentry kind="src" path="friend"/>
 	<classpathentry kind="lib" path="C:/Programmieren/Bungge.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
