@@ -10,6 +10,10 @@ import net.md_5.bungee.event.EventHandler;
 
 public class ProxyLogin implements Listener {
 	
+	public ProxyLogin() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void ProxyLoginEvent(PostLoginEvent e) {

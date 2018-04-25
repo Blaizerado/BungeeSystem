@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 
 import de.unknown.bungeecord.BungeeRange;
 
-public class CheckPlayer {
+public class BanCheckPlayer {
 	public static boolean isBanned(String UUID) {
 		ResultSet rs = BungeeRange.my.query("SELECT * FROM TimeBan WHERE UUID='"+UUID+"' ORDER BY ban_activ='1'");
 		try {

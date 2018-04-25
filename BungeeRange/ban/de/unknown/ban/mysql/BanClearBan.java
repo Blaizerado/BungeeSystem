@@ -2,9 +2,9 @@ package de.unknown.ban.mysql;
 
 import de.unknown.bungeecord.BungeeRange;
 
-public class ClearBan extends Thread{
+public class BanClearBan extends Thread{
 	
-	public ClearBan() {
+	public BanClearBan() {
 		
 	}
 	

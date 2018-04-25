@@ -1,6 +1,6 @@
 package de.unknown.command;
 
-import de.unknown.ban.mysql.ClearBan;
+import de.unknown.ban.mysql.BanClearBan;
 import de.unknown.ban.mysql.GetBanInfoTime;
 import de.unknown.ban.mysql.GetMySQLBanPerma;
 import de.unknown.ban.mysql.GetMySQLBanTime;
@@ -61,7 +61,7 @@ public class ProxyBan extends Command {
 					p.sendMessage("§3<==============================>");
 				}else if(args[0].equalsIgnoreCase("clear")) {
 					if(!p.hasPermission("Bungee.ban.clear")) {p.sendMessage("§cDas darfst du nicht!"); return;}
-					ClearBan b = new ClearBan();
+					BanClearBan b = new BanClearBan();
 					b.start();
 					p.sendMessage(Utils.prefix + "§cAchtung, alle Bans die nicht mehr aktiv sind werden nun gelöscht!!!");
 					p.sendMessage("§cAb jetzt kann man nur noch auf Bans zurück greifen, die noch Aktiv sind!");
