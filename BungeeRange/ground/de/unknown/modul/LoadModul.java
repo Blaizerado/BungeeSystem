@@ -11,7 +11,9 @@ import de.unknown.commands.Ping;
 import de.unknown.commands.TeamChat;
 import de.unknown.commands.Wartung;
 import de.unknown.config.SetConfig;
+import de.unknown.friend.command.ProxyFriend;
 import de.unknown.listener.ProxyChat;
+import de.unknown.listener.ProxyFriendJoin;
 import de.unknown.listener.ProxyJoin;
 import de.unknown.listener.ProxyLeav;
 import de.unknown.listener.ProxyLogin;
@@ -46,6 +48,7 @@ public class LoadModul {
 		bungeeRange.getProxy().getPluginManager().registerListener(bungeeRange, new ProxyBanPlayerJoin());
 		bungeeRange.getProxy().getPluginManager().registerListener(bungeeRange, new ProxyPermsJoin());
 		bungeeRange.getProxy().getPluginManager().registerListener(bungeeRange, new ProxyPermsLeav());
+		bungeeRange.getProxy().getPluginManager().registerListener(bungeeRange, new ProxyFriendJoin());
 	}
 
 	private void loadCommands(BungeeRange bungeeRange) {
@@ -60,6 +63,7 @@ public class LoadModul {
 		bungeeRange.getProxy().getPluginManager().registerCommand(bungeeRange, new ProxyUnBan("unban",bungeeRange));
 		bungeeRange.getProxy().getPluginManager().registerCommand(bungeeRange, new ProxyLoginCommand("login",bungeeRange));
 		bungeeRange.getProxy().getPluginManager().registerCommand(bungeeRange, new ProxyUnknownPermission("uperms",bungeeRange));
+		bungeeRange.getProxy().getPluginManager().registerCommand(bungeeRange, new ProxyFriend("friend",bungeeRange));
 	}
 
 	@SuppressWarnings("static-access")
@@ -73,6 +77,7 @@ public class LoadModul {
 		bungeeRange.my.update("CREATE TABLE IF NOT EXISTS Login(UUID varchar(50),login_name varchar(30), login_password varchar(30), login_activ int);");
 		bungeeRange.my.update("CREATE TABLE IF NOT EXISTS UPerms_Group(id MEDIUMINT NOT NULL AUTO_INCREMENT,PRIMARY KEY (id),Name varchar(60),Server_Group int,Group_Copy varchar(100),defaults int);");
 		bungeeRange.my.update("CREATE TABLE IF NOT EXISTS UPerms_Permission(id MEDIUMINT NOT NULL AUTO_INCREMENT,PRIMARY KEY (id),group_id int,perms varchar(120));");
+		bungeeRange.my.update("CREATE TABLE IF NOT EXISTS Friend_Request(id MEDIUMINT NOT NULL AUTO_INCREMENT,PRIMARY KEY (id),player_target varchar(60), player_requestet varchar(60));");
 	}
 
 }
