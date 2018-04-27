@@ -3,7 +3,6 @@ package de.unknown.friend.command;
 import de.unknown.bungeecord.BungeeRange;
 import de.unknown.friend.mysql.MySQL_Add;
 import de.unknown.friend.mysql.MySQL_Deny;
-import de.unknown.login.mysql.MySQL_Delete;
 import de.unknown.mysql.Player_Account;
 import de.unknown.utils.Utils;
 import de.unknown.uuid.uuidfetcher;
