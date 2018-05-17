@@ -10,6 +10,7 @@ import de.unknown.perms.mysql.MySQL_RemoveGroup;
 import de.unknown.perms.mysql.MySQL_RemovePermission;
 import de.unknown.perms.mysql.MySQL_SetDefault;
 import de.unknown.perms.mysql.MySQL_SetGroup;
+import de.unknown.perms.mysql.MySQL_SetPrefix;
 import de.unknown.utils.Utils;
 import de.unknown.uuid.uuidfetcher;
 import net.md_5.bungee.api.CommandSender;
@@ -35,10 +36,9 @@ public class ProxyUnknownPermission extends Command {
 				p.sendMessage("§3Unknown_Perms§8:§c /uperms create [Name] [Erben ZB 1,0 ID]");
 				p.sendMessage("§3Unknown_Perms§8:§c /uperms groups");
 				p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] setdefault");
-				p.sendMessage("§3Unknown_Perms§8:§c /uperms [Group] add permission [Permission]");
-				p.sendMessage("§3Unknown_Perms§8:§c /uperms [Group] remove permission [Permission]");
-				p.sendMessage("§3Unknown_Perms§8:§c /uperms [Group] setprefix [Prefix]");
-				p.sendMessage("§3Unknown_Perms§8:§c /uperms [Group] setdisplay [Display]");
+				p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] add permission [Permission]");
+				p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] remove permission [Permission]");
+				p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] setprefix [Prefix]");
 				p.sendMessage("§3Unknown_Perms§8:§c /uperms user [Player] setgroup [Group]");
 				p.sendMessage("§3Unknown_Perms§8:§c /uperms user [Player] removegroup [Ggroup]");
 			}else if(args.length == 1) {
@@ -52,10 +52,9 @@ public class ProxyUnknownPermission extends Command {
 				}else if(args[0].equalsIgnoreCase("group")) {
 					if(!p.hasPermission("Bungee.uperms.info")) {p.sendMessage("§cDas darfst du nicht!"); return;}
 					p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] setdefault");
-					p.sendMessage("§3Unknown_Perms§8:§c /uperms [Group] addpermission [Permission]");
-					p.sendMessage("§3Unknown_Perms§8:§c /uperms [Group] removepermission [Permission]");
-					p.sendMessage("§3Unknown_Perms§8:§c /uperms [Group] setprefix [Prefix]");
-					p.sendMessage("§3Unknown_Perms§8:§c /uperms [Group] setdisplay [Display]");
+					p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] addpermission [Permission]");
+					p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] removepermission [Permission]");
+					p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] setprefix [Prefix]");
 				}else if(args[0].equalsIgnoreCase("user")) {
 					if(!p.hasPermission("Bungee.uperms.info")) {p.sendMessage("§cDas darfst du nicht!"); return;}
 					p.sendMessage("§3Unknown_Perms§8:§c /uperms user [Player] setgroup [Group]");
@@ -72,7 +71,6 @@ public class ProxyUnknownPermission extends Command {
 					p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] addpermission [Permission]");
 					p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] removepermission [Permission]");
 					p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] setprefix [Prefix]");
-					p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] setdisplay [Display]");
 				}else if(args[0].equalsIgnoreCase("user")) {
 					if(!p.hasPermission("Bungee.uperms.info")) {p.sendMessage("§cDas darfst du nicht!"); return;}
 					p.sendMessage("§3Unknown_Perms§8:§c /uperms user [Player] setgroup [Group]");
@@ -94,7 +92,6 @@ public class ProxyUnknownPermission extends Command {
 						p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] addpermission [Permission]");
 						p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] removepermission [Permission]");
 						p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] setprefix [Prefix]");
-						p.sendMessage("§3Unknown_Perms§8:§c /uperms group [Group] setdisplay [Display]");
 					}
 				}else if(args[0].equalsIgnoreCase("user")) {
 					if(!p.hasPermission("Bungee.uperms.info")) {p.sendMessage("§cDas darfst du nicht!"); return;}
@@ -107,6 +104,7 @@ public class ProxyUnknownPermission extends Command {
 						if(!p.hasPermission("Bungee.uperms.addpermssion")) {p.sendMessage("§cDas darfst du nicht!"); return;}
 						String group = args[1];
 						String perms = args[3];
+						
 						MySQL_GroupAddPermission b = new MySQL_GroupAddPermission(perms, group, p);
 						b.start();
 					}else if(args[2].equalsIgnoreCase("removepermission")) {
@@ -114,6 +112,12 @@ public class ProxyUnknownPermission extends Command {
 						String group = args[1];
 						String perms = args[3];
 						MySQL_RemovePermission b = new MySQL_RemovePermission(p, group, perms);
+						b.start();
+					}else if(args[2].equalsIgnoreCase("setprefix")) {
+						if(!p.hasPermission("Bungee.uperms.removepermssion")) {p.sendMessage("§cDas darfst du nicht!"); return;}
+						String group = args[1];
+						String perfix = args[3];
+						MySQL_SetPrefix b = new MySQL_SetPrefix(p, group, perfix);
 						b.start();
 					}
 				}else if(args[0].equalsIgnoreCase("user")) {

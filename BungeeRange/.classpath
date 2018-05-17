@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="src" path="ground"/>
-	<classpathentry kind="src" path="ban"/>
-	<classpathentry kind="src" path="sup"/>
-	<classpathentry kind="src" path="unban"/>
-	<classpathentry kind="src" path="login"/>
-	<classpathentry kind="src" path="uperms"/>
-	<classpathentry kind="src" path="friend"/>
-	<classpathentry kind="lib" path="C:/Programmieren/Bungge.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/spigot-1.12.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

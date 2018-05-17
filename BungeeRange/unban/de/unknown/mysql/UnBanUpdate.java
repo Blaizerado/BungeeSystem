@@ -11,7 +11,6 @@ public class UnBanUpdate extends Thread{
 	ProxiedPlayer t;
 	public UnBanUpdate(String UUID,ProxiedPlayer p) {pUUID = UUID; t = p;}
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		System.out.println("Unban Thread wird gestartet!");

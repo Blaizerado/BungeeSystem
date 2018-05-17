@@ -15,8 +15,6 @@ public class Find extends Command {
 		super(name);
 		this.main = bungeeRange;
 	}
-
-	@SuppressWarnings("deprecation")
 	@Override
 	public void execute(CommandSender sender, String[] args) {
 		if(sender instanceof ProxiedPlayer) {

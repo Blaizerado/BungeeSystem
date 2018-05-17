@@ -23,7 +23,6 @@ public class SetConfig {
 		}
 		try {config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(f);} catch (IOException e) {e.printStackTrace();}
 		if(config.get("Config.Profil") == null) {
-			bungeeRange.my.update("INSERT INTO Settings(Wartung,Party,Support,profil) VALUES ('0','0','0','1')");
 			config.set("Config.Profil", 1);
 		}
 		if(config.get("Config.Prefix") == null) {

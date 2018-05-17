@@ -31,7 +31,7 @@ public class MySQL {
                      System.out.println("Loading mysql files");
                      System.out.println("Loading complet willkommen");
              } catch (SQLException e) {
-                     System.out.println("[MySQL] Die Verbindung zur MySQL ist fehlgeschlagen! Fehler: " + e.getMessage());
+                     e.printStackTrace();
              }
      }
     

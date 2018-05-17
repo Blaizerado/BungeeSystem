@@ -3,6 +3,7 @@ package de.unknown.perms.mysql;
 import java.sql.ResultSet;
 
 import de.unknown.bungeecord.BungeeRange;
+import de.unknown.message.SendUpDateMessage;
 import de.unknown.utils.Utils;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
@@ -18,7 +19,6 @@ public class MySQL_SetGroup extends Thread{
 		plname = pname;
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		System.out.println("Uperms Thread wird gestartet!");
@@ -27,6 +27,7 @@ public class MySQL_SetGroup extends Thread{
 			if(rs.next()) {
 				BungeeRange.my.update("UPDATE Account SET groups='"+rs.getInt("id")+"' WHERE UUID='"+pUUID+"'");
 				t.sendMessage(Utils.prefix + "§3 Du hast den Spieler §e" + plname + "§3 in die Gruppe §e" + name + "§3 gesetzt!");
+				SendUpDateMessage.sendGroupUpdate("GROUP", name, plname, "ADD-GROUP");
 			}else {t.sendMessage(Utils.prefix + "§cAchtung, die Gruppe wurde nicht gefunden!");}
 			Thread.sleep(100);
 		}catch(Exception e) {e.printStackTrace();}

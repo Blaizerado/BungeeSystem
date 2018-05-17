@@ -32,6 +32,7 @@ public class MySQL_Add extends Thread{
 		System.out.println("Friend Thread wird gestartet!");
 		try {
 			if(checkRequest(pUUID)) {t.sendMessage(Utils.prefix + "§cDer Spieler hat bereits eine Anfrage von dir erhalten!");  Thread.sleep(100); return;}
+			if(checkRequest(uuidfetcher.getUUID(t.getName()).toString(), tUUID)) {t.sendMessage(Utils.prefix + "§cDu bist bereits mit diesem Spieler befreundet!"); return;}
 			BungeeRange.my.update("INSERT INTO Friend_Request(player_target,player_requestet) VALUES ('"+pUUID+"','"+tUUID+"')");
 			t.sendMessage(Utils.prefix + "Du hast dem Spieler §e" + name + "§3 eine Anfrage gesendet!");
 			ProxiedPlayer p = this.main.getProxy().getPlayer(name);
@@ -64,4 +65,16 @@ public class MySQL_Add extends Thread{
 		return false;
 	}
 	
+	
+	public Boolean checkRequest(String UU, String name) {
+		ResultSet rs = BungeeRange.my.query("SELECT * FROM Friend_Friend WHERE UUID1='"+name+"' UNION SELECT * FROM Friend_Friend WHERE UUID2='"+name+"'");
+		try {
+			while (rs.next()) {
+				if(rs.getString("UUID1").equalsIgnoreCase(name) || rs.getString("UUID2").equalsIgnoreCase(name)) {
+					return true;
+				}
+			}
+		}catch(Exception e) {}
+		return false;
+	}
 }

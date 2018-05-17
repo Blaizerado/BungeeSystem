@@ -66,7 +66,6 @@ public class Command_Sub_Time {
 		
 	}
 
-	@SuppressWarnings("deprecation")
 	public Long getBanTime(String banInput, Integer banTime) {
 		Long l = null;
 		Date d = new Date();

@@ -20,7 +20,7 @@ public class MySQL_GetRequest extends Thread{
 		System.out.println("Friend Thread wird gestartet!");
 		try {
 			int i = 0;
-			ResultSet rs = BungeeRange.my.query("SELECT * FROM Friend_Request WHERE player_target");
+			ResultSet rs = BungeeRange.my.query("SELECT * FROM Friend_Request WHERE player_target='"+UU+"'");
 			while (rs.next()) {
 				i++;
 			}

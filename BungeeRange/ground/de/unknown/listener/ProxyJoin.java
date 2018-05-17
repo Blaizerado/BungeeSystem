@@ -7,7 +7,6 @@ import net.md_5.bungee.event.EventHandler;
 
 public class ProxyJoin implements Listener {
 	
-	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void ProxyJoinEvent(ServerConnectEvent e) {
 		if(Utils.Wartung) {

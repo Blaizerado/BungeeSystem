@@ -9,12 +9,14 @@ import com.google.gson.stream.JsonWriter;
 
 public class Typeadapter extends TypeAdapter<UUID>{
 	
+	@Override
 	public void write(JsonWriter paramJsonWriter, UUID paramUUID) throws IOException
 	  {
 	    paramJsonWriter.value(fromUUID(paramUUID));
 	  }
 
-	  public UUID read(JsonReader paramJsonReader) throws IOException {
+	  @Override
+	public UUID read(JsonReader paramJsonReader) throws IOException {
 	    return fromString(paramJsonReader.nextString());
 	  }
 
